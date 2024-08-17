@@ -88,22 +88,25 @@ URI=mongodb://localhost:27017/bookstore
 
 ## Running the Application
 
-1. **Start the Backend Server**
+Split Terminal or press `ctrl + shift + 5`
 
-    Navigate to the `backend` directory and run:
 
-    ```bash
-    nodemon .\app.js
-    ```
+1. **Start the Frontend Server**
 
-2. **Start the Frontend Server**
-
-    Navigate to the `frontend` directory and run:
+    Navigate to the `frontend`(left side terminal) directory and run:
 
     ```bash
     npm run dev
     ```
 
+2. **Start the Backend Server**
+
+    if frontend on the path then type 
+    ```bash
+    cd ..
+    cd backend
+    nodemon .\app.js
+    ```
     This will open the application in your default browser at [http://localhost:5173](http://localhost:5173).
 
 ## Usage
