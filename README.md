@@ -80,11 +80,10 @@ Create a `.env` file in the `backend` directory with the following content:
 ```env
 PORT=1000
 URI=mongodb://localhost:27017/bookstore
-JWT_SECRET=your_jwt_secret
 ```
 
 - `PORT`: Port on which the server will run.
-- `MONGO_URI`: MongoDB connection URI. Paste your MongoDB URI.
+- `URI`: MongoDB connection URI. Paste your MongoDB URI.
 
 
 ## Running the Application
@@ -105,7 +104,7 @@ JWT_SECRET=your_jwt_secret
     npm run dev
     ```
 
-    This will open the application in your default browser at `http://localhost:5173`.
+    This will open the application in your default browser at [http://localhost:5173](http://localhost:5173).
 
 ## Usage
 
