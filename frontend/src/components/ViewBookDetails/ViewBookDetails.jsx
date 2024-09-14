@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const ViewBookDetails = () => {
     const { id } = useParams();
-    const navigate =  useNavigate();
+    const navigate = useNavigate();
     const [Data, setData] = useState();
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const role = useSelector((state) => state.auth.role);
@@ -23,31 +23,31 @@ const ViewBookDetails = () => {
         fetch();
     }, [id]);
 
-const headers = {  
-    id:localStorage.getItem("id"),
-    authorization:`Bearer ${localStorage.getItem("token")}`,
-    bookId:id,
- };
-const handleFavourite =  async() =>{
-    const response = await axios.put("http://localhost:1000/api/v1/add-book-to-favourite",{},{ headers});
-    alert(response.data.message);
-};
-const handleCart = async ()=>{
-    const response =  await axios.put(
-        "http://localhost:1000/api/v1/add-to-cart",
-        {},
-        {headers}
-    );
-    alert(response.data.message);
-};
-const deleteBook = async () =>{
-    const response = await axios.delete(
-        "http://localhost:1000/api/v1/delete-book",
-        {headers}
-    );
-    alert(response.data.message);
-    navigate("/all-books");
-};  
+    const headers = {
+        id: localStorage.getItem("id"),
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+        bookId: id,
+    };
+    const handleFavourite = async () => {
+        const response = await axios.put("http://localhost:1000/api/v1/add-book-to-favourite", {}, { headers });
+        alert(response.data.message);
+    };
+    const handleCart = async () => {
+        const response = await axios.put(
+            "http://localhost:1000/api/v1/add-to-cart",
+            {},
+            { headers }
+        );
+        alert(response.data.message);
+    };
+    const deleteBook = async () => {
+        const response = await axios.delete(
+            "http://localhost:1000/api/v1/delete-book",
+            { headers }
+        );
+        alert(response.data.message);
+        navigate("/all-books");
+    };
     return (
         <>
             {Data && (
@@ -69,9 +69,9 @@ const deleteBook = async () =>{
                             )}
                             {isLoggedIn && role === 'admin' && (
                                 <div className='flex flex-col md:flex-row lg:flex-col items-center justify-between lg:justify-start mt-8 lg:mt-0'>
-                                    <Link 
-                                    to={`/updateBook/${id}`}
-                                    className='bg-white rounded-full text-3xl p-3 flex items-center justify-center lg:mb-4 hover:bg-gray-100 transition-all duration-300'>
+                                    <Link
+                                        to={`/updateBook/${id}`}
+                                        className='bg-white rounded-full text-3xl p-3 flex items-center justify-center lg:mb-4 hover:bg-gray-100 transition-all duration-300'>
                                         <FaEdit />
                                         <span className='ml-2 lg:hidden text-base'>Edit</span>
                                     </Link>
