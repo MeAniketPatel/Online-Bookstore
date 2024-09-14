@@ -11,12 +11,12 @@ const UpdateBook = () => {
         desc: "",
         language: "",
     });
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
     const headers = {
         id: localStorage.getItem("id"),
         authorization: `Bearer ${localStorage.getItem("token")}`,
-        bookid:id,
+        bookid: id,
     };
     const change = (e) => {
         const { name, value } = e.target;

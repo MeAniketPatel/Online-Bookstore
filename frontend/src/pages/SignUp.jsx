@@ -18,8 +18,8 @@ const SignUp = () => {
     try {
       if (Values.username === "" || Values.email === "" || Values.password === "" || Values.address === "") {
         alert("all fields are required")
-      }else{
-        const response = await axios.post("http://localhost:1000/api/v1/sign-up",Values);
+      } else {
+        const response = await axios.post("http://localhost:1000/api/v1/sign-up", Values);
         alert(response.data.message);
         navigate("/LogIn");
       }

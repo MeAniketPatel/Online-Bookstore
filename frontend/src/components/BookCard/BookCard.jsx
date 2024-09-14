@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const BookCard = ({ data, favourite }) => {
 
-  const headers= {
-    id:localStorage.getItem("id"),
-    authorization:`Bearer ${localStorage.getItem("token")}`,
-    bookid:data._id,
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+    bookid: data._id,
   };
-  const handleRemoveBook = async () =>{
-    const response  = await axios.put(
-      "http://localhost:1000/api/v1/remove-book-from-favourite",{},{headers}
+  const handleRemoveBook = async () => {
+    const response = await axios.put(
+      "http://localhost:1000/api/v1/remove-book-from-favourite", {}, { headers }
     );
-   alert(response.data.message);
+    alert(response.data.message);
   };
 
   return (
@@ -27,14 +27,14 @@ const BookCard = ({ data, favourite }) => {
 
           <p className='mt-2 text-zinc-400 font-semibold'>by {data.author}</p>
           <p className='mt-2 text-zinc-200 font-semibold text-xl'>₹ {data.price}</p>
-          
+
         </div>
       </Link>
 
-      {favourite &&(
+      {favourite && (
         <button className='bg-yellow-50 px-4 py-2 rounded border border-yello-500 text-yello-500 mt-4' onClick={handleRemoveBook}>
-        Remove From favourite
-      </button>
+          Remove From favourite
+        </button>
       )}
     </div>
   )

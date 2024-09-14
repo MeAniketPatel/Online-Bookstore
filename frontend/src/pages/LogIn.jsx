@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {authActions} from '../store/auth';
+import { authActions } from '../store/auth';
 import { useDispatch } from 'react-redux';
 
 
@@ -20,13 +20,13 @@ const LogIn = () => {
     try {
       if (Values.username === "" || Values.password === "") {
         alert("all fields are required")
-      }else{
-        const response = await axios.post("http://localhost:1000/api/v1/sign-in",Values);
+      } else {
+        const response = await axios.post("http://localhost:1000/api/v1/sign-in", Values);
         dispatch(authActions.login());
         dispatch(authActions.changeRole(response.data.role));
-        localStorage.setItem("id",response.data.id);
-        localStorage.setItem("token",response.data.token);
-        localStorage.setItem("role",response.data.role);
+        localStorage.setItem("id", response.data.id);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role);
         navigate("/profile");
       }
 
@@ -54,7 +54,7 @@ const LogIn = () => {
             />
           </div>
         </div>
-        
+
         <div className="mt-4">
           <label htmlFor="password" className="text-zinc-400">
             Password
@@ -66,10 +66,10 @@ const LogIn = () => {
             name="password"
             required
             value={Values.password}
-              onChange={change}
+            onChange={change}
           />
         </div>
-        
+
         <div className="mt-4">
           <button className="w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 " onClick={submit}>
             Login

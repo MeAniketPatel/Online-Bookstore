@@ -21,25 +21,25 @@ const Favourites = () => {
         fetch();
     }, [FavouriteBooks]);
     return (<>
-    {FavouriteBooks && FavouriteBooks.length === 0 &&(
-        <div className="text-5xl font-semibold h-[100%] text-zinc-500 flex items-center justify-center flex-col w-full ">
-            No Favourite Books
-            <img src="./star.png" alt="star" className="h-[20vh] my-8" />
-             
-        </div>
-    )}
-    <div className="grid grid-cols-3 gap-4">
+        {FavouriteBooks && FavouriteBooks.length === 0 && (
+            <div className="text-5xl font-semibold h-[100%] text-zinc-500 flex items-center justify-center flex-col w-full ">
+                No Favourite Books
+                <img src="./star.png" alt="star" className="h-[20vh] my-8" />
+
+            </div>
+        )}
+        <div className="grid grid-cols-3 gap-4">
             {FavouriteBooks &&
                 FavouriteBooks.map((items, i) => (
                     <div key={i}>
                         <BookCard data={items
-                         } favourite={true} />
+                        } favourite={true} />
                     </div>
                 ))}
         </div>
     </>
-        
+
     );
 }
 
-    export default Favourites
+export default Favourites

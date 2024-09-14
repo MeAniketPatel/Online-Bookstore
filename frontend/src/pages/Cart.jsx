@@ -62,16 +62,16 @@ const Cart = () => {
     try {
       const response = await axios.post(
         `http://localhost:1000/api/v1/place-order`,
-        {order:Cart},
-        {headers}
+        { order: Cart },
+        { headers }
       );
       alert(response.data.message);
       navigate("/profile/orderhistory");
 
-      
+
     } catch (error) {
       console.log(error);
-      
+
     }
   };
 

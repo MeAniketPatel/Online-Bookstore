@@ -10,9 +10,9 @@ const Settings = () => {
     authorization: `Bearer ${localStorage.getItem("token")}`,
   };
 
-  const change = (e) =>{
-    const {name,value}=e.target;
-    setValue({ ...Value, [name]:value});
+  const change = (e) => {
+    const { name, value } = e.target;
+    setValue({ ...Value, [name]: value });
   };
   useEffect(() => {
     const fetch = async () => {
@@ -29,11 +29,11 @@ const Settings = () => {
     };
     fetch();
   }, []);
-  const submitAddress = async () =>{
+  const submitAddress = async () => {
     const response = await axios.put(
       'http://localhost:1000/api/v1/update-address',
       Value,
-      {headers}
+      { headers }
     );
     alert(response.data.message);
   };

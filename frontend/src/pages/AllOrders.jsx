@@ -10,7 +10,7 @@ import SeeUserData from './SeeUserData';
 const AllOrders = () => {
   const [AllOrders, setAllOrders] = useState();
   const [Options, setOptions] = useState(-1);
-  const [Values, setValues] = useState({status:""});
+  const [Values, setValues] = useState({ status: "" });
   const [userDiv, setuserDiv] = useState();
   const [userDivData, setuserDivData] = useState();
   const headers = {
@@ -29,19 +29,19 @@ const AllOrders = () => {
     fetch();
   }, [AllOrders]);
 
-  const change = (e) =>{
-    const {value} = e.target;
-    setValues({status:value});
+  const change = (e) => {
+    const { value } = e.target;
+    setValues({ status: value });
   };
-  const submitChanges = async (i) =>{
+  const submitChanges = async (i) => {
     const id = AllOrders[i]._id;
     const response = await axios.put(
       `http://localhost:1000/api/v1/update-status/${id}`,
-      Values,{headers}
+      Values, { headers }
     );
     alert(response.data.message);
   };
-  AllOrders && AllOrders.splice(AllOrders.length -1,1);
+  AllOrders && AllOrders.splice(AllOrders.length - 1, 1);
 
   return (
     <>
@@ -104,31 +104,31 @@ const AllOrders = () => {
                       <div className="text-green-500">{items.status}</div>
                     )}
                   </button>
-                  
-                    <div className={`${Options === i ? "flex":"hidden"}`}>
-                      <select name="status" id="" className="bg-gray-800"
+
+                  <div className={`${Options === i ? "flex" : "hidden"}`}>
+                    <select name="status" id="" className="bg-gray-800"
                       onChange={change}
                       value={Values.status}>
-                        {[
-                          "Order placed",
-                          "Out for delivery",
-                          "Delivered",
-                          "Canceled",
-                        ].map((option, idx) => (
-                          <option value={option} key={idx}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                      <button className="text-green-500 hover:text-pink-600 mx-2"
-                      onClick={()=>{
+                      {[
+                        "Order placed",
+                        "Out for delivery",
+                        "Delivered",
+                        "Canceled",
+                      ].map((option, idx) => (
+                        <option value={option} key={idx}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                    <button className="text-green-500 hover:text-pink-600 mx-2"
+                      onClick={() => {
                         setOptions(-1);
                         submitChanges(i);
                       }}>
-                        <FaCheck />
-                      </button>
-                    </div>
-                  
+                      <FaCheck />
+                    </button>
+                  </div>
+
                 </h1>
               </div>
               <div className="w-[10%] md:w-[5%]">
@@ -143,11 +143,11 @@ const AllOrders = () => {
           ))}
         </div>
       )}
-      {userDivData &&(
+      {userDivData && (
         <SeeUserData
-        userDivData={userDivData}
-        userDiv={userDiv}
-        setuserDiv={setuserDiv}
+          userDivData={userDivData}
+          userDiv={userDiv}
+          setuserDiv={setuserDiv}
         />
       )}
     </>
