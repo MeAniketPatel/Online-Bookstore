@@ -2,6 +2,10 @@
 
 Welcome to the MERN Online Bookstore project! This application allows users to browse and purchase books, manage their profiles, and for administrators to add and update books. The project is built using MongoDB, Express.js, React, and Node.js.
 
+## Live Demo
+
+Experience the live version of the project [here](https://book-store-mern-stack.netlify.app).
+
 ## Table of Contents
 
 - [Demonstration](#demonstration)
